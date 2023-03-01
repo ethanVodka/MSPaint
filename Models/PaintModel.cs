@@ -17,10 +17,7 @@ namespace MSPaint.Models
 
         protected virtual void OnPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         public enum Mode
@@ -30,7 +27,7 @@ namespace MSPaint.Models
             Bucket,
             Rectangle,
             Circle,
-            Select
+            Line
         }
 
         /// <summary>
@@ -63,12 +60,6 @@ namespace MSPaint.Models
         private Mode drawMode = 0;
         //描画可能フラグ
         private bool isDraw = false;
-        //座標保持
-        private Point tempPoint = Point.Empty;
-        //ビットマップ
-        private Bitmap objBmp = null;
-        //グラフィックス設定
-        private Graphics objGrp = null;
         //フォントファミリー
         private FontFamily drawFontFamily = new FontFamily("MS UI Gothic");
         //フォントスタイル
@@ -106,21 +97,6 @@ namespace MSPaint.Models
         {
             get { return isDraw; }
             set { isDraw = value; }
-        }
-        public Point TempPoint
-        {
-            get { return tempPoint; }
-            set { tempPoint = value; }
-        }
-        public Bitmap ObjBmp
-        {
-            get { return objBmp; }
-            set { objBmp = value; }
-        }
-        public Graphics ObjGrp
-        {
-            get { return objGrp; }
-            set { objGrp = value; }
         }
         public FontFamily DrawFontFamily
         {

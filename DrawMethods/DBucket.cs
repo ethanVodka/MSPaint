@@ -3,9 +3,9 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 
-namespace MSPaint
+namespace MSPaint.DrawMethods
 {
-    public class Bucket
+    public class DBucket
     {
         #region Methods
         public static void FillArea(Bitmap bitmap, Point location, Color color)
@@ -39,10 +39,10 @@ namespace MSPaint
                         Point next = new Point(cur.X + off.X, cur.Y + off.Y);
                         if (next.X >= 0 && next.Y >= 0 && next.X < data.Width && next.Y < data.Height)
                         {
-                            if (bits[next.X + next.Y * data.Stride / 4] == floodFrom)
+                            if (bits[next.X + (next.Y * data.Stride / 4)] == floodFrom)
                             {
                                 check.AddLast(next);
-                                bits[next.X + next.Y * data.Stride / 4] = floodTo;
+                                bits[next.X + (next.Y * data.Stride / 4)] = floodTo;
                             }
                         }
                     }

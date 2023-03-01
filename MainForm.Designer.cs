@@ -34,6 +34,7 @@
             this.BtnMinimize = new System.Windows.Forms.Button();
             this.BtnMaximize = new System.Windows.Forms.Button();
             this.PanelTools = new System.Windows.Forms.Panel();
+            this.BtnSelectColor = new System.Windows.Forms.Button();
             this.BtnClear = new FontAwesome.Sharp.IconButton();
             this.SelectColor = new System.Windows.Forms.PictureBox();
             this.LabelFontSize = new System.Windows.Forms.Label();
@@ -44,7 +45,7 @@
             this.CmbPenWidth = new System.Windows.Forms.ComboBox();
             this.SelectBold = new System.Windows.Forms.RadioButton();
             this.SelectRegular = new System.Windows.Forms.RadioButton();
-            this.BtnSelect_5 = new FontAwesome.Sharp.IconButton();
+            this.BtnLine_5 = new FontAwesome.Sharp.IconButton();
             this.BtnCircle_4 = new FontAwesome.Sharp.IconButton();
             this.BtnRectangle_3 = new FontAwesome.Sharp.IconButton();
             this.BtnBucket_2 = new FontAwesome.Sharp.IconButton();
@@ -140,7 +141,8 @@
             // 
             // PanelTools
             // 
-            this.PanelTools.BackColor = System.Drawing.Color.Gainsboro;
+            this.PanelTools.BackColor = System.Drawing.Color.DarkGray;
+            this.PanelTools.Controls.Add(this.BtnSelectColor);
             this.PanelTools.Controls.Add(this.BtnClear);
             this.PanelTools.Controls.Add(this.SelectColor);
             this.PanelTools.Controls.Add(this.LabelFontSize);
@@ -148,7 +150,7 @@
             this.PanelTools.Controls.Add(this.LabelFontFamily);
             this.PanelTools.Controls.Add(this.BtnSelectFont);
             this.PanelTools.Controls.Add(this.FontStyle);
-            this.PanelTools.Controls.Add(this.BtnSelect_5);
+            this.PanelTools.Controls.Add(this.BtnLine_5);
             this.PanelTools.Controls.Add(this.BtnCircle_4);
             this.PanelTools.Controls.Add(this.BtnRectangle_3);
             this.PanelTools.Controls.Add(this.BtnBucket_2);
@@ -161,6 +163,21 @@
             this.PanelTools.Name = "PanelTools";
             this.PanelTools.Size = new System.Drawing.Size(1150, 120);
             this.PanelTools.TabIndex = 1;
+            // 
+            // BtnSelectColor
+            // 
+            this.BtnSelectColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnSelectColor.FlatAppearance.BorderSize = 0;
+            this.BtnSelectColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSelectColor.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnSelectColor.ForeColor = System.Drawing.Color.White;
+            this.BtnSelectColor.Location = new System.Drawing.Point(625, 6);
+            this.BtnSelectColor.Name = "BtnSelectColor";
+            this.BtnSelectColor.Size = new System.Drawing.Size(53, 23);
+            this.BtnSelectColor.TabIndex = 15;
+            this.BtnSelectColor.Text = "Color";
+            this.BtnSelectColor.UseVisualStyleBackColor = true;
+            this.BtnSelectColor.Click += new System.EventHandler(this.BtnSelectColor_Click);
             // 
             // BtnClear
             // 
@@ -182,7 +199,7 @@
             // 
             // SelectColor
             // 
-            this.SelectColor.Location = new System.Drawing.Point(624, 54);
+            this.SelectColor.Location = new System.Drawing.Point(625, 59);
             this.SelectColor.Name = "SelectColor";
             this.SelectColor.Size = new System.Drawing.Size(52, 52);
             this.SelectColor.TabIndex = 13;
@@ -192,7 +209,7 @@
             // LabelFontSize
             // 
             this.LabelFontSize.AutoSize = true;
-            this.LabelFontSize.Location = new System.Drawing.Point(710, 90);
+            this.LabelFontSize.Location = new System.Drawing.Point(703, 99);
             this.LabelFontSize.Name = "LabelFontSize";
             this.LabelFontSize.Size = new System.Drawing.Size(11, 12);
             this.LabelFontSize.TabIndex = 12;
@@ -201,7 +218,7 @@
             // LabelFontStyle
             // 
             this.LabelFontStyle.AutoSize = true;
-            this.LabelFontStyle.Location = new System.Drawing.Point(710, 54);
+            this.LabelFontStyle.Location = new System.Drawing.Point(703, 69);
             this.LabelFontStyle.Name = "LabelFontStyle";
             this.LabelFontStyle.Size = new System.Drawing.Size(11, 12);
             this.LabelFontStyle.TabIndex = 11;
@@ -210,7 +227,7 @@
             // LabelFontFamily
             // 
             this.LabelFontFamily.AutoSize = true;
-            this.LabelFontFamily.Location = new System.Drawing.Point(710, 17);
+            this.LabelFontFamily.Location = new System.Drawing.Point(703, 38);
             this.LabelFontFamily.Name = "LabelFontFamily";
             this.LabelFontFamily.Size = new System.Drawing.Size(11, 12);
             this.LabelFontFamily.TabIndex = 10;
@@ -219,8 +236,11 @@
             // BtnSelectFont
             // 
             this.BtnSelectFont.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BtnSelectFont.FlatAppearance.BorderSize = 0;
             this.BtnSelectFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSelectFont.Location = new System.Drawing.Point(624, 6);
+            this.BtnSelectFont.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.BtnSelectFont.ForeColor = System.Drawing.Color.White;
+            this.BtnSelectFont.Location = new System.Drawing.Point(705, 6);
             this.BtnSelectFont.Name = "BtnSelectFont";
             this.BtnSelectFont.Size = new System.Drawing.Size(53, 23);
             this.BtnSelectFont.TabIndex = 9;
@@ -299,24 +319,24 @@
             this.SelectRegular.UseVisualStyleBackColor = true;
             this.SelectRegular.CheckedChanged += new System.EventHandler(this.SelectPenWidth_CheckedChanged);
             // 
-            // BtnSelect_5
+            // BtnLine_5
             // 
-            this.BtnSelect_5.FlatAppearance.BorderSize = 0;
-            this.BtnSelect_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSelect_5.IconChar = FontAwesome.Sharp.IconChar.Square;
-            this.BtnSelect_5.IconColor = System.Drawing.Color.Black;
-            this.BtnSelect_5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnSelect_5.IconSize = 12;
-            this.BtnSelect_5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BtnSelect_5.Location = new System.Drawing.Point(292, 76);
-            this.BtnSelect_5.Name = "BtnSelect_5";
-            this.BtnSelect_5.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.BtnSelect_5.Size = new System.Drawing.Size(87, 24);
-            this.BtnSelect_5.TabIndex = 7;
-            this.BtnSelect_5.Text = "Select";
-            this.BtnSelect_5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnSelect_5.UseVisualStyleBackColor = true;
-            this.BtnSelect_5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModeButton_MouseClick);
+            this.BtnLine_5.FlatAppearance.BorderSize = 0;
+            this.BtnLine_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnLine_5.IconChar = FontAwesome.Sharp.IconChar.LinesLeaning;
+            this.BtnLine_5.IconColor = System.Drawing.Color.Black;
+            this.BtnLine_5.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnLine_5.IconSize = 12;
+            this.BtnLine_5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.BtnLine_5.Location = new System.Drawing.Point(292, 76);
+            this.BtnLine_5.Name = "BtnLine_5";
+            this.BtnLine_5.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
+            this.BtnLine_5.Size = new System.Drawing.Size(87, 24);
+            this.BtnLine_5.TabIndex = 7;
+            this.BtnLine_5.Text = "Line";
+            this.BtnLine_5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnLine_5.UseVisualStyleBackColor = true;
+            this.BtnLine_5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModeButton_MouseClick);
             // 
             // BtnCircle_4
             // 
@@ -456,6 +476,7 @@
             this.Canvas.TabIndex = 2;
             this.Canvas.TabStop = false;
             this.Canvas.ClientSizeChanged += new System.EventHandler(this.Canvas_ClientSizeChanged);
+            this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
             this.Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseDown);
             this.Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseMove);
             this.Canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseUp);
@@ -468,7 +489,6 @@
             this.Controls.Add(this.Canvas);
             this.Controls.Add(this.PanelTools);
             this.Controls.Add(this.PanelTitle);
-            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -499,7 +519,7 @@
         private FontAwesome.Sharp.IconButton BtnBucket_2;
         private FontAwesome.Sharp.IconButton BtnEraser_1;
         private FontAwesome.Sharp.IconButton BtnPen_0;
-        private FontAwesome.Sharp.IconButton BtnSelect_5;
+        private FontAwesome.Sharp.IconButton BtnLine_5;
         private FontAwesome.Sharp.IconButton BtnCircle_4;
         private FontAwesome.Sharp.IconButton BtnRectangle_3;
         private System.Windows.Forms.Button BtnSelectFont;
@@ -514,6 +534,7 @@
         private System.Windows.Forms.PictureBox SelectColor;
         private FontAwesome.Sharp.IconButton BtnClear;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.Button BtnSelectColor;
     }
 }
 
