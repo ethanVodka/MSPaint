@@ -7,6 +7,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -211,10 +212,11 @@ namespace MSPaint
                     break;
 
                 case PaintModel.Mode.Eraser:
+                    using (Brush brush = new SolidBrush(Color.White))
                     using (Pen pen = new Pen(Color.White, Model.PenWidth))
                     {
-                        //線を描く
                         ObjGrp.DrawLine(pen, PrevPoint, CurrentPoint);
+                        ObjGrp.FillEllipse(brush, PrevPoint.X - Model.PenWidth / 2, PrevPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
                         //座標更新
                         PrevPoint = CurrentPoint;
                     }
@@ -320,6 +322,50 @@ namespace MSPaint
             };
 
             return rect;
+        }
+
+        private void ColorPicker_MouseClick(object sender, MouseEventArgs e)
+        {
+            Point node = e.Location;
+            Model.DrawColor = ((Bitmap)ColorPicker.Image).GetPixel(node.X, node.Y);
+        }
+
+        private void BtnOpen_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Filter = "イメージファイル(*.png;*.PNG;*.Png)|*.png;*.PNG;*.Png|イメージファイル(*.jpeg;*.Jpeg;*.Jpg)|*.jpeg;*.Jpeg;*.Jpg|すべてのファイル(*.*)|*.*",
+                Title = "開く画像を選択してください",
+                RestoreDirectory = true,
+                CheckFileExists = true
+            };
+
+            DialogResult = openFileDialog.ShowDialog();
+            if (DialogResult == DialogResult.OK)
+            {
+                Canvas.Image = Image.FromFile(openFileDialog.FileName);
+                ObjBmp = (Bitmap)Canvas.Image;
+                ObjGrp = Graphics.FromImage(ObjBmp);
+            }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog
+            {
+                InitialDirectory = @"C:\",
+                Filter = "イメージファイル(*.png)|*.png",
+                Title = "保存先指定してください",
+                RestoreDirectory = true,
+                FileName = "ファイル名.png"
+            };
+
+            DialogResult = saveFileDialog.ShowDialog();
+            if (DialogResult == DialogResult.OK)
+            {
+                ObjBmp.Save(System.IO.Path.GetFileNameWithoutExtension(saveFileDialog.FileName) + ".png");
+            }
         }
     }
 }

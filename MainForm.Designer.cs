@@ -35,8 +35,6 @@
             this.BtnMaximize = new System.Windows.Forms.Button();
             this.PanelTools = new System.Windows.Forms.Panel();
             this.BtnSelectColor = new System.Windows.Forms.Button();
-            this.BtnClear = new FontAwesome.Sharp.IconButton();
-            this.SelectColor = new System.Windows.Forms.PictureBox();
             this.LabelFontSize = new System.Windows.Forms.Label();
             this.LabelFontStyle = new System.Windows.Forms.Label();
             this.LabelFontFamily = new System.Windows.Forms.Label();
@@ -45,6 +43,12 @@
             this.CmbPenWidth = new System.Windows.Forms.ComboBox();
             this.SelectBold = new System.Windows.Forms.RadioButton();
             this.SelectRegular = new System.Windows.Forms.RadioButton();
+            this.DrawaingFontDialog = new System.Windows.Forms.FontDialog();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.Canvas = new System.Windows.Forms.PictureBox();
+            this.ColorPicker = new System.Windows.Forms.PictureBox();
+            this.BtnClear = new FontAwesome.Sharp.IconButton();
+            this.SelectColor = new System.Windows.Forms.PictureBox();
             this.BtnLine_5 = new FontAwesome.Sharp.IconButton();
             this.BtnCircle_4 = new FontAwesome.Sharp.IconButton();
             this.BtnRectangle_3 = new FontAwesome.Sharp.IconButton();
@@ -53,14 +57,12 @@
             this.BtnPen_0 = new FontAwesome.Sharp.IconButton();
             this.BtnSave = new FontAwesome.Sharp.IconButton();
             this.BtnOpen = new FontAwesome.Sharp.IconButton();
-            this.Canvas = new System.Windows.Forms.PictureBox();
-            this.DrawaingFontDialog = new System.Windows.Forms.FontDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.PanelTitle.SuspendLayout();
             this.PanelTools.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SelectColor)).BeginInit();
             this.FontStyle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Canvas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColorPicker)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectColor)).BeginInit();
             this.SuspendLayout();
             // 
             // PanelTitle
@@ -73,7 +75,7 @@
             this.PanelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitle.Location = new System.Drawing.Point(0, 0);
             this.PanelTitle.Name = "PanelTitle";
-            this.PanelTitle.Size = new System.Drawing.Size(1150, 27);
+            this.PanelTitle.Size = new System.Drawing.Size(1200, 27);
             this.PanelTitle.TabIndex = 0;
             this.PanelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PanelTitle_MouseDown);
             // 
@@ -95,7 +97,7 @@
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClose.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnClose.ForeColor = System.Drawing.Color.White;
-            this.BtnClose.Location = new System.Drawing.Point(1122, 2);
+            this.BtnClose.Location = new System.Drawing.Point(1172, 2);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
@@ -112,7 +114,7 @@
             this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMinimize.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnMinimize.ForeColor = System.Drawing.Color.White;
-            this.BtnMinimize.Location = new System.Drawing.Point(1076, 2);
+            this.BtnMinimize.Location = new System.Drawing.Point(1126, 2);
             this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMinimize.Name = "BtnMinimize";
             this.BtnMinimize.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
@@ -129,7 +131,7 @@
             this.BtnMaximize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMaximize.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnMaximize.ForeColor = System.Drawing.Color.White;
-            this.BtnMaximize.Location = new System.Drawing.Point(1099, 2);
+            this.BtnMaximize.Location = new System.Drawing.Point(1149, 2);
             this.BtnMaximize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMaximize.Name = "BtnMaximize";
             this.BtnMaximize.Padding = new System.Windows.Forms.Padding(1, 1, 0, 0);
@@ -142,6 +144,7 @@
             // PanelTools
             // 
             this.PanelTools.BackColor = System.Drawing.Color.DarkGray;
+            this.PanelTools.Controls.Add(this.ColorPicker);
             this.PanelTools.Controls.Add(this.BtnSelectColor);
             this.PanelTools.Controls.Add(this.BtnClear);
             this.PanelTools.Controls.Add(this.SelectColor);
@@ -161,17 +164,18 @@
             this.PanelTools.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTools.Location = new System.Drawing.Point(0, 27);
             this.PanelTools.Name = "PanelTools";
-            this.PanelTools.Size = new System.Drawing.Size(1150, 120);
+            this.PanelTools.Size = new System.Drawing.Size(1200, 138);
             this.PanelTools.TabIndex = 1;
             // 
             // BtnSelectColor
             // 
+            this.BtnSelectColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnSelectColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.BtnSelectColor.FlatAppearance.BorderSize = 0;
             this.BtnSelectColor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSelectColor.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnSelectColor.ForeColor = System.Drawing.Color.White;
-            this.BtnSelectColor.Location = new System.Drawing.Point(625, 6);
+            this.BtnSelectColor.Location = new System.Drawing.Point(1135, 16);
             this.BtnSelectColor.Name = "BtnSelectColor";
             this.BtnSelectColor.Size = new System.Drawing.Size(53, 23);
             this.BtnSelectColor.TabIndex = 15;
@@ -179,37 +183,10 @@
             this.BtnSelectColor.UseVisualStyleBackColor = true;
             this.BtnSelectColor.Click += new System.EventHandler(this.BtnSelectColor_Click);
             // 
-            // BtnClear
-            // 
-            this.BtnClear.FlatAppearance.BorderSize = 0;
-            this.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClear.IconChar = FontAwesome.Sharp.IconChar.Pallet;
-            this.BtnClear.IconColor = System.Drawing.Color.Black;
-            this.BtnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnClear.IconSize = 32;
-            this.BtnClear.Location = new System.Drawing.Point(110, 6);
-            this.BtnClear.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnClear.Name = "BtnClear";
-            this.BtnClear.Size = new System.Drawing.Size(49, 88);
-            this.BtnClear.TabIndex = 14;
-            this.BtnClear.Text = "Clear";
-            this.BtnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.BtnClear.UseVisualStyleBackColor = true;
-            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
-            // 
-            // SelectColor
-            // 
-            this.SelectColor.Location = new System.Drawing.Point(625, 59);
-            this.SelectColor.Name = "SelectColor";
-            this.SelectColor.Size = new System.Drawing.Size(52, 52);
-            this.SelectColor.TabIndex = 13;
-            this.SelectColor.TabStop = false;
-            this.SelectColor.Click += new System.EventHandler(this.SelectColor_Click);
-            // 
             // LabelFontSize
             // 
             this.LabelFontSize.AutoSize = true;
-            this.LabelFontSize.Location = new System.Drawing.Point(703, 99);
+            this.LabelFontSize.Location = new System.Drawing.Point(595, 109);
             this.LabelFontSize.Name = "LabelFontSize";
             this.LabelFontSize.Size = new System.Drawing.Size(11, 12);
             this.LabelFontSize.TabIndex = 12;
@@ -218,7 +195,7 @@
             // LabelFontStyle
             // 
             this.LabelFontStyle.AutoSize = true;
-            this.LabelFontStyle.Location = new System.Drawing.Point(703, 69);
+            this.LabelFontStyle.Location = new System.Drawing.Point(595, 79);
             this.LabelFontStyle.Name = "LabelFontStyle";
             this.LabelFontStyle.Size = new System.Drawing.Size(11, 12);
             this.LabelFontStyle.TabIndex = 11;
@@ -227,7 +204,7 @@
             // LabelFontFamily
             // 
             this.LabelFontFamily.AutoSize = true;
-            this.LabelFontFamily.Location = new System.Drawing.Point(703, 38);
+            this.LabelFontFamily.Location = new System.Drawing.Point(595, 48);
             this.LabelFontFamily.Name = "LabelFontFamily";
             this.LabelFontFamily.Size = new System.Drawing.Size(11, 12);
             this.LabelFontFamily.TabIndex = 10;
@@ -240,7 +217,7 @@
             this.BtnSelectFont.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnSelectFont.Font = new System.Drawing.Font("MS UI Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.BtnSelectFont.ForeColor = System.Drawing.Color.White;
-            this.BtnSelectFont.Location = new System.Drawing.Point(705, 6);
+            this.BtnSelectFont.Location = new System.Drawing.Point(597, 16);
             this.BtnSelectFont.Name = "BtnSelectFont";
             this.BtnSelectFont.Size = new System.Drawing.Size(53, 23);
             this.BtnSelectFont.TabIndex = 9;
@@ -255,7 +232,7 @@
             this.FontStyle.Controls.Add(this.SelectBold);
             this.FontStyle.Controls.Add(this.SelectRegular);
             this.FontStyle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FontStyle.Location = new System.Drawing.Point(498, 6);
+            this.FontStyle.Location = new System.Drawing.Point(484, 16);
             this.FontStyle.Name = "FontStyle";
             this.FontStyle.Size = new System.Drawing.Size(91, 105);
             this.FontStyle.TabIndex = 8;
@@ -319,117 +296,171 @@
             this.SelectRegular.UseVisualStyleBackColor = true;
             this.SelectRegular.CheckedChanged += new System.EventHandler(this.SelectPenWidth_CheckedChanged);
             // 
+            // Canvas
+            // 
+            this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Canvas.Location = new System.Drawing.Point(0, 165);
+            this.Canvas.Name = "Canvas";
+            this.Canvas.Size = new System.Drawing.Size(1200, 585);
+            this.Canvas.TabIndex = 2;
+            this.Canvas.TabStop = false;
+            this.Canvas.ClientSizeChanged += new System.EventHandler(this.Canvas_ClientSizeChanged);
+            this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
+            this.Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseDown);
+            this.Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseMove);
+            this.Canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseUp);
+            // 
+            // ColorPicker
+            // 
+            this.ColorPicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ColorPicker.Image = global::MSPaint.Properties.Resources.sample;
+            this.ColorPicker.Location = new System.Drawing.Point(801, 3);
+            this.ColorPicker.Name = "ColorPicker";
+            this.ColorPicker.Size = new System.Drawing.Size(328, 132);
+            this.ColorPicker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ColorPicker.TabIndex = 16;
+            this.ColorPicker.TabStop = false;
+            this.ColorPicker.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ColorPicker_MouseClick);
+            // 
+            // BtnClear
+            // 
+            this.BtnClear.FlatAppearance.BorderSize = 0;
+            this.BtnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClear.IconChar = FontAwesome.Sharp.IconChar.Pallet;
+            this.BtnClear.IconColor = System.Drawing.Color.Black;
+            this.BtnClear.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnClear.IconSize = 32;
+            this.BtnClear.Location = new System.Drawing.Point(110, 16);
+            this.BtnClear.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnClear.Name = "BtnClear";
+            this.BtnClear.Size = new System.Drawing.Size(49, 105);
+            this.BtnClear.TabIndex = 14;
+            this.BtnClear.Text = "Clear";
+            this.BtnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.BtnClear.UseVisualStyleBackColor = true;
+            this.BtnClear.Click += new System.EventHandler(this.BtnClear_Click);
+            // 
+            // SelectColor
+            // 
+            this.SelectColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SelectColor.Location = new System.Drawing.Point(1136, 60);
+            this.SelectColor.Name = "SelectColor";
+            this.SelectColor.Size = new System.Drawing.Size(52, 52);
+            this.SelectColor.TabIndex = 13;
+            this.SelectColor.TabStop = false;
+            this.SelectColor.Click += new System.EventHandler(this.SelectColor_Click);
+            // 
             // BtnLine_5
             // 
-            this.BtnLine_5.FlatAppearance.BorderSize = 0;
             this.BtnLine_5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnLine_5.IconChar = FontAwesome.Sharp.IconChar.LinesLeaning;
             this.BtnLine_5.IconColor = System.Drawing.Color.Black;
             this.BtnLine_5.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnLine_5.IconSize = 12;
-            this.BtnLine_5.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.BtnLine_5.Location = new System.Drawing.Point(292, 76);
+            this.BtnLine_5.IconSize = 24;
+            this.BtnLine_5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnLine_5.Location = new System.Drawing.Point(366, 81);
             this.BtnLine_5.Name = "BtnLine_5";
             this.BtnLine_5.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.BtnLine_5.Size = new System.Drawing.Size(87, 24);
+            this.BtnLine_5.Size = new System.Drawing.Size(90, 40);
             this.BtnLine_5.TabIndex = 7;
             this.BtnLine_5.Text = "Line";
-            this.BtnLine_5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnLine_5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnLine_5.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnLine_5.UseVisualStyleBackColor = true;
             this.BtnLine_5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModeButton_MouseClick);
             // 
             // BtnCircle_4
             // 
-            this.BtnCircle_4.FlatAppearance.BorderSize = 0;
             this.BtnCircle_4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCircle_4.IconChar = FontAwesome.Sharp.IconChar.Circle;
             this.BtnCircle_4.IconColor = System.Drawing.Color.Black;
             this.BtnCircle_4.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnCircle_4.IconSize = 12;
-            this.BtnCircle_4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCircle_4.Location = new System.Drawing.Point(292, 46);
+            this.BtnCircle_4.IconSize = 24;
+            this.BtnCircle_4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnCircle_4.Location = new System.Drawing.Point(270, 16);
             this.BtnCircle_4.Name = "BtnCircle_4";
             this.BtnCircle_4.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.BtnCircle_4.Size = new System.Drawing.Size(87, 24);
+            this.BtnCircle_4.Size = new System.Drawing.Size(90, 40);
             this.BtnCircle_4.TabIndex = 6;
             this.BtnCircle_4.Text = "Circle";
-            this.BtnCircle_4.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCircle_4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCircle_4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnCircle_4.UseVisualStyleBackColor = true;
             this.BtnCircle_4.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModeButton_MouseClick);
             // 
             // BtnRectangle_3
             // 
-            this.BtnRectangle_3.FlatAppearance.BorderSize = 0;
             this.BtnRectangle_3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRectangle_3.IconChar = FontAwesome.Sharp.IconChar.WindowClose;
             this.BtnRectangle_3.IconColor = System.Drawing.Color.Black;
             this.BtnRectangle_3.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnRectangle_3.IconSize = 12;
-            this.BtnRectangle_3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnRectangle_3.Location = new System.Drawing.Point(292, 16);
+            this.BtnRectangle_3.IconSize = 24;
+            this.BtnRectangle_3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnRectangle_3.Location = new System.Drawing.Point(366, 16);
             this.BtnRectangle_3.Name = "BtnRectangle_3";
             this.BtnRectangle_3.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.BtnRectangle_3.Size = new System.Drawing.Size(87, 24);
+            this.BtnRectangle_3.Size = new System.Drawing.Size(90, 40);
             this.BtnRectangle_3.TabIndex = 5;
             this.BtnRectangle_3.Text = "Rectangle";
-            this.BtnRectangle_3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnRectangle_3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRectangle_3.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnRectangle_3.UseVisualStyleBackColor = true;
             this.BtnRectangle_3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModeButton_MouseClick);
             // 
             // BtnBucket_2
             // 
-            this.BtnBucket_2.FlatAppearance.BorderSize = 0;
             this.BtnBucket_2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBucket_2.IconChar = FontAwesome.Sharp.IconChar.Bucket;
             this.BtnBucket_2.IconColor = System.Drawing.Color.Black;
             this.BtnBucket_2.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBucket_2.IconSize = 12;
-            this.BtnBucket_2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnBucket_2.Location = new System.Drawing.Point(202, 76);
+            this.BtnBucket_2.IconSize = 24;
+            this.BtnBucket_2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnBucket_2.Location = new System.Drawing.Point(270, 81);
             this.BtnBucket_2.Name = "BtnBucket_2";
             this.BtnBucket_2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.BtnBucket_2.Size = new System.Drawing.Size(76, 24);
+            this.BtnBucket_2.Size = new System.Drawing.Size(90, 40);
             this.BtnBucket_2.TabIndex = 4;
             this.BtnBucket_2.Text = "Bucket";
-            this.BtnBucket_2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnBucket_2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnBucket_2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnBucket_2.UseVisualStyleBackColor = true;
             this.BtnBucket_2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModeButton_MouseClick);
             // 
             // BtnEraser_1
             // 
-            this.BtnEraser_1.FlatAppearance.BorderSize = 0;
             this.BtnEraser_1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEraser_1.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             this.BtnEraser_1.IconColor = System.Drawing.Color.Black;
             this.BtnEraser_1.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnEraser_1.IconSize = 12;
-            this.BtnEraser_1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEraser_1.Location = new System.Drawing.Point(202, 46);
+            this.BtnEraser_1.IconSize = 24;
+            this.BtnEraser_1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEraser_1.Location = new System.Drawing.Point(174, 81);
             this.BtnEraser_1.Name = "BtnEraser_1";
             this.BtnEraser_1.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.BtnEraser_1.Size = new System.Drawing.Size(62, 24);
+            this.BtnEraser_1.Size = new System.Drawing.Size(90, 40);
             this.BtnEraser_1.TabIndex = 3;
             this.BtnEraser_1.Text = "Eraser";
-            this.BtnEraser_1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnEraser_1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEraser_1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnEraser_1.UseVisualStyleBackColor = true;
             this.BtnEraser_1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModeButton_MouseClick);
             // 
             // BtnPen_0
             // 
-            this.BtnPen_0.FlatAppearance.BorderSize = 0;
             this.BtnPen_0.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnPen_0.IconChar = FontAwesome.Sharp.IconChar.Pen;
             this.BtnPen_0.IconColor = System.Drawing.Color.Black;
             this.BtnPen_0.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnPen_0.IconSize = 12;
-            this.BtnPen_0.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPen_0.Location = new System.Drawing.Point(202, 16);
+            this.BtnPen_0.IconSize = 24;
+            this.BtnPen_0.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnPen_0.Location = new System.Drawing.Point(174, 16);
             this.BtnPen_0.Name = "BtnPen_0";
             this.BtnPen_0.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.BtnPen_0.Size = new System.Drawing.Size(62, 24);
+            this.BtnPen_0.Size = new System.Drawing.Size(90, 40);
             this.BtnPen_0.TabIndex = 2;
             this.BtnPen_0.Text = "Pen";
-            this.BtnPen_0.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPen_0.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPen_0.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.BtnPen_0.UseVisualStyleBackColor = true;
             this.BtnPen_0.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ModeButton_MouseClick);
             // 
@@ -441,14 +472,15 @@
             this.BtnSave.IconColor = System.Drawing.Color.Black;
             this.BtnSave.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnSave.IconSize = 32;
-            this.BtnSave.Location = new System.Drawing.Point(61, 6);
+            this.BtnSave.Location = new System.Drawing.Point(61, 16);
             this.BtnSave.Margin = new System.Windows.Forms.Padding(0);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(49, 88);
+            this.BtnSave.Size = new System.Drawing.Size(49, 105);
             this.BtnSave.TabIndex = 1;
             this.BtnSave.Text = "Save";
             this.BtnSave.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // BtnOpen
             // 
@@ -458,34 +490,21 @@
             this.BtnOpen.IconColor = System.Drawing.Color.Black;
             this.BtnOpen.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnOpen.IconSize = 32;
-            this.BtnOpen.Location = new System.Drawing.Point(12, 6);
+            this.BtnOpen.Location = new System.Drawing.Point(12, 16);
             this.BtnOpen.Margin = new System.Windows.Forms.Padding(0);
             this.BtnOpen.Name = "BtnOpen";
-            this.BtnOpen.Size = new System.Drawing.Size(49, 88);
+            this.BtnOpen.Size = new System.Drawing.Size(49, 105);
             this.BtnOpen.TabIndex = 0;
             this.BtnOpen.Text = "Open";
             this.BtnOpen.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
             this.BtnOpen.UseVisualStyleBackColor = true;
-            // 
-            // Canvas
-            // 
-            this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Canvas.Location = new System.Drawing.Point(0, 147);
-            this.Canvas.Name = "Canvas";
-            this.Canvas.Size = new System.Drawing.Size(1150, 603);
-            this.Canvas.TabIndex = 2;
-            this.Canvas.TabStop = false;
-            this.Canvas.ClientSizeChanged += new System.EventHandler(this.Canvas_ClientSizeChanged);
-            this.Canvas.Paint += new System.Windows.Forms.PaintEventHandler(this.Canvas_Paint);
-            this.Canvas.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseDown);
-            this.Canvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseMove);
-            this.Canvas.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Canvas_MouseUp);
+            this.BtnOpen.Click += new System.EventHandler(this.BtnOpen_Click);
             // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1150, 750);
+            this.ClientSize = new System.Drawing.Size(1200, 750);
             this.Controls.Add(this.Canvas);
             this.Controls.Add(this.PanelTools);
             this.Controls.Add(this.PanelTitle);
@@ -497,10 +516,11 @@
             this.PanelTitle.PerformLayout();
             this.PanelTools.ResumeLayout(false);
             this.PanelTools.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SelectColor)).EndInit();
             this.FontStyle.ResumeLayout(false);
             this.FontStyle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Canvas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ColorPicker)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SelectColor)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -535,6 +555,7 @@
         private FontAwesome.Sharp.IconButton BtnClear;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Button BtnSelectColor;
+        private System.Windows.Forms.PictureBox ColorPicker;
     }
 }
 
