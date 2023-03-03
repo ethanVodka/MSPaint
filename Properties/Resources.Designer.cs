@@ -63,19 +63,9 @@ namespace MSPaint.Properties {
         /// <summary>
         ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
         /// </summary>
-        internal static System.Drawing.Bitmap ColorPalette {
+        internal static System.Drawing.Bitmap palette {
             get {
-                object obj = ResourceManager.GetObject("ColorPalette", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
-        /// </summary>
-        internal static System.Drawing.Bitmap sample {
-            get {
-                object obj = ResourceManager.GetObject("sample", resourceCulture);
+                object obj = ResourceManager.GetObject("palette", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

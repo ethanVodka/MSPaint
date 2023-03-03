@@ -30,9 +30,6 @@ namespace MSPaint.Models
             Line
         }
 
-        /// <summary>
-        /// シングルトンインスタンス
-        /// </summary>
         private static PaintModel InstancePaintModel = null;
 
         private PaintModel()
@@ -69,6 +66,10 @@ namespace MSPaint.Models
         #endregion
 
         #region Property
+        public Point StartPoint { get; set; } = Point.Empty;
+        public Point PrevPoint { get; set; } = Point.Empty;
+        public Point CurrentPoint { get; set; } = Point.Empty;
+        public Point EndPoint { get; set; } = Point.Empty;
         public Color DrawColor
         {
             get { return drawingColor; }

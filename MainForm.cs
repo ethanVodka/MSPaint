@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
@@ -22,15 +23,11 @@ namespace MSPaint
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private static extern void SendMessage(IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        #region Feiled
+        #region Property
         //モデルインスタンス
         private PaintModel Model { get; set; }
-        private Bitmap ObjBmp { get; set; }
-        private Graphics ObjGrp { get; set; }
-        private Point StartPoint { get; set; } = Point.Empty;
-        private Point PrevPoint { get; set; } = Point.Empty;
-        private Point CurrentPoint { get; set; } = Point.Empty;
-        private Point EndPoint { get; set; } = Point.Empty;
+        private Bitmap ObjBmp { get; set; } = null;
+        private Graphics ObjGrp { get; set; } = null;
         #endregion
 
         //コンストラクター
@@ -41,10 +38,7 @@ namespace MSPaint
             Model = PaintModel.GetInstance();
 
             //Modelとデータバインディング
-            LabelFontFamily.DataBindings.Add("Text", Model, nameof(Model.DrawFontFamily), true, DataSourceUpdateMode.OnPropertyChanged);
-            LabelFontStyle.DataBindings.Add("Text", Model, nameof(Model.DrawFontStyle), true, DataSourceUpdateMode.OnPropertyChanged);
-            LabelFontSize.DataBindings.Add("Text", Model, nameof(Model.DrawFontSize), true, DataSourceUpdateMode.OnPropertyChanged);
-            SelectColor.DataBindings.Add("BackColor", Model, nameof(Model.DrawColor), true, DataSourceUpdateMode.OnPropertyChanged);
+            SelectedColor.DataBindings.Add("ForeColor", Model, nameof(Model.DrawColor), true, DataSourceUpdateMode.OnPropertyChanged);
 
             //Bitmap初期化
             ObjBmp = new Bitmap(Canvas.Width, Canvas.Height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
@@ -90,7 +84,7 @@ namespace MSPaint
         {
             if (Model.ActiveButton != null)
             {
-                Model.ActiveButton.BackColor = Color.DarkGray;
+                Model.ActiveButton.BackColor = Color.White;
             }
 
             //ボタン名からモード設定
@@ -158,12 +152,6 @@ namespace MSPaint
 
             Canvas.Refresh();
         }
-        private void Canvas_ClientSizeChanged(object sender, EventArgs e)
-        {
-            //Model.ObjBmp = new Bitmap(Canvas.Width, Canvas.Height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
-            //Canvas.Image = Model.ObjBmp;
-            //Model.ObjGrp = Graphics.FromImage(Canvas.Image);
-        }
         private void BtnSelectColor_Click(object sender, EventArgs e)
         {
             using (ColorDialog colorDialog = new ColorDialog())
@@ -183,9 +171,9 @@ namespace MSPaint
             Model.IsDraw = true;
 
             //連続描画Prev
-            PrevPoint = e.Location;
+            Model.PrevPoint = e.Location;
             //矩形描画Start
-            StartPoint = e.Location;
+            Model.StartPoint = e.Location;
         }
         private void Canvas_MouseMove(object sender, MouseEventArgs e)
         {
@@ -194,7 +182,7 @@ namespace MSPaint
                 return;
             }
             //途中経過描画Current
-            CurrentPoint = e.Location;
+            Model.CurrentPoint = e.Location;
 
             switch (Model.DrawMode)
             {
@@ -203,11 +191,11 @@ namespace MSPaint
                     using (Pen pen = new Pen(Model.DrawColor, Model.PenWidth))
                     {
                         //線を描く
-                        ObjGrp.DrawLine(pen, PrevPoint, CurrentPoint);
+                        ObjGrp.DrawLine(pen, Model.PrevPoint, Model.CurrentPoint);
                         //線と線の空白をまるで埋める
-                        ObjGrp.FillEllipse(brush, PrevPoint.X - Model.PenWidth / 2, PrevPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
+                        ObjGrp.FillEllipse(brush, Model.PrevPoint.X - Model.PenWidth / 2, Model.PrevPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
                         //座標更新
-                        PrevPoint = CurrentPoint;
+                        Model.PrevPoint = Model.CurrentPoint;
                     }
                     break;
 
@@ -215,10 +203,10 @@ namespace MSPaint
                     using (Brush brush = new SolidBrush(Color.White))
                     using (Pen pen = new Pen(Color.White, Model.PenWidth))
                     {
-                        ObjGrp.DrawLine(pen, PrevPoint, CurrentPoint);
-                        ObjGrp.FillEllipse(brush, PrevPoint.X - Model.PenWidth / 2, PrevPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
+                        ObjGrp.DrawLine(pen, Model.PrevPoint, Model.CurrentPoint);
+                        ObjGrp.FillEllipse(brush, Model.PrevPoint.X - Model.PenWidth / 2, Model.PrevPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
                         //座標更新
-                        PrevPoint = CurrentPoint;
+                        Model.PrevPoint = Model.CurrentPoint;
                     }
                     break;
 
@@ -235,7 +223,7 @@ namespace MSPaint
                 Model.IsDraw = false;
             }
 
-            EndPoint = e.Location;
+            Model.EndPoint = e.Location;
 
             switch (Model.DrawMode)
             {
@@ -246,14 +234,14 @@ namespace MSPaint
                 case PaintModel.Mode.Rectangle:
                     using (Pen pen = new Pen(Model.DrawColor, Model.PenWidth))
                     {
-                        ObjGrp.DrawRectangle(pen, GetRect(StartPoint, EndPoint));
+                        ObjGrp.DrawRectangle(pen, GetRect(Model.StartPoint, Model.EndPoint));
                     }
                     break;
 
                 case PaintModel.Mode.Circle:
                     using (Pen pen = new Pen(Model.DrawColor, Model.PenWidth))
                     {
-                        ObjGrp.DrawEllipse(pen, GetRect(StartPoint, EndPoint));
+                        ObjGrp.DrawEllipse(pen, GetRect(Model.StartPoint, Model.EndPoint));
                     }
 
                     break;
@@ -262,9 +250,9 @@ namespace MSPaint
                     using (Brush brush = new SolidBrush(Model.DrawColor))
                     using (Pen pen = new Pen(Model.DrawColor, Model.PenWidth))
                     {
-                        ObjGrp.DrawLine(pen, StartPoint, EndPoint);
-                        ObjGrp.FillEllipse(brush, StartPoint.X - Model.PenWidth / 2, StartPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
-                        ObjGrp.FillEllipse(brush, EndPoint.X - Model.PenWidth / 2, EndPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
+                        ObjGrp.DrawLine(pen, Model.StartPoint, Model.EndPoint);
+                        ObjGrp.FillEllipse(brush, Model.StartPoint.X - Model.PenWidth / 2, Model.StartPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
+                        ObjGrp.FillEllipse(brush, Model.EndPoint.X - Model.PenWidth / 2, Model.EndPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
                     }
                     break;
             }
@@ -284,14 +272,14 @@ namespace MSPaint
                     case PaintModel.Mode.Rectangle:
                         using (Pen pen = new Pen(Model.DrawColor, Model.PenWidth))
                         {
-                            g.DrawRectangle(pen, GetRect(StartPoint, CurrentPoint));
+                            g.DrawRectangle(pen, GetRect(Model.StartPoint, Model.CurrentPoint));
                         }
                         break;
 
                     case PaintModel.Mode.Circle:
                         using (Pen pen = new Pen(Model.DrawColor, Model.PenWidth))
                         {
-                            g.DrawEllipse(pen, GetRect(StartPoint, CurrentPoint));
+                            g.DrawEllipse(pen, GetRect(Model.StartPoint, Model.CurrentPoint));
                         }
                         break;
 
@@ -299,9 +287,9 @@ namespace MSPaint
                         using (Brush brush = new SolidBrush(Model.DrawColor))
                         using (Pen pen = new Pen(Model.DrawColor, Model.PenWidth))
                         {
-                            g.DrawLine(pen, StartPoint, CurrentPoint);
-                            g.FillEllipse(brush, StartPoint.X - Model.PenWidth / 2, StartPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
-                            g.FillEllipse(brush, CurrentPoint.X - Model.PenWidth / 2, CurrentPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
+                            g.DrawLine(pen, Model.StartPoint, Model.CurrentPoint);
+                            g.FillEllipse(brush, Model.StartPoint.X - Model.PenWidth / 2, Model.StartPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
+                            g.FillEllipse(brush, Model.CurrentPoint.X - Model.PenWidth / 2, Model.CurrentPoint.Y - Model.PenWidth / 2, Model.PenWidth, Model.PenWidth);
                         }
                         break;
                 }
@@ -322,12 +310,6 @@ namespace MSPaint
             };
 
             return rect;
-        }
-
-        private void ColorPicker_MouseClick(object sender, MouseEventArgs e)
-        {
-            Point node = e.Location;
-            Model.DrawColor = ((Bitmap)ColorPicker.Image).GetPixel(node.X, node.Y);
         }
 
         private void BtnOpen_Click(object sender, EventArgs e)
@@ -354,17 +336,37 @@ namespace MSPaint
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
             {
-                InitialDirectory = @"C:\",
-                Filter = "イメージファイル(*.png)|*.png",
-                Title = "保存先指定してください",
+                Title = "Save",
+                Filter = "イメージファイル(*.jpg)|*.jpg|(*.*)|*.*",
                 RestoreDirectory = true,
-                FileName = "ファイル名.png"
             };
 
             DialogResult = saveFileDialog.ShowDialog();
             if (DialogResult == DialogResult.OK)
             {
-                ObjBmp.Save(System.IO.Path.GetFileNameWithoutExtension(saveFileDialog.FileName) + ".png");
+                Bitmap bmp = ObjBmp.Clone(new Rectangle(0, 0, Canvas.Width, Canvas.Height), ObjBmp.PixelFormat);
+                bmp.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+            }
+        }
+
+        private void ColorPalette_MouseDown(object sender, MouseEventArgs e)
+        {
+            PictureBox palette = sender as PictureBox;
+
+            Point node = e.Location;
+            Model.DrawColor = palette.BackColor;
+        }
+
+        private void Canvas_SizeChanged(object sender, EventArgs e)
+        {
+            if (ObjBmp != null)
+            {
+                ObjBmp = new Bitmap(Canvas.Width, Canvas.Height, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
+                ObjGrp = Graphics.FromImage(ObjBmp);
+                ObjGrp.Clear(Color.White);
+                ObjGrp.DrawImage(Canvas.Image, new Point(0, 0));
+
+                Canvas.Image = ObjBmp;
             }
         }
     }
