@@ -15,7 +15,7 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_364F7D19A7BD455D9487F01D0D2EDAE4"
+        "MsmKey" = "8:_0121A007BA384014A8B9A41EF6231448"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -39,8 +39,8 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D3097D5344F3497C3F16A32234014ED2"
+        "MsmKey" = "8:_EBD58436B97846AFA2FA3170B751CAF0"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -52,7 +52,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EBD58436B97846AFA2FA3170B751CAF0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9226CE6DD90A11E82846DE35A9A78356"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_D3097D5344F3497C3F16A32234014ED2"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -73,6 +85,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -89,6 +117,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
     }
     "Deployable"
@@ -118,9 +162,9 @@
         }
         "File"
         {
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_364F7D19A7BD455D9487F01D0D2EDAE4"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0121A007BA384014A8B9A41EF6231448"
             {
-            "SourcePath" = "8:..\\MSPaint.ico"
+            "SourcePath" = "8:..\\Resources\\MSPaint.ico"
             "TargetName" = "8:MSPaint.ico"
             "Tag" = "8:"
             "Folder" = "8:_3201960A51B34502AEA49F7796D93262"
@@ -200,6 +244,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EBD58436B97846AFA2FA3170B751CAF0"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+                "ScatterAssemblies"
+                {
+                    "_EBD58436B97846AFA2FA3170B751CAF0"
+                    {
+                    "Name" = "8:System.Drawing.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:C:\\Program Files (x86)\\Reference Assemblies\\Microsoft\\Framework\\.NETFramework\\v4.6.1\\System.Drawing.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_3201960A51B34502AEA49F7796D93262"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -268,7 +343,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:MSPaintSetup"
         "ProductCode" = "8:{FF4E9522-6308-478E-9BF1-8F5CD146ADC3}"
-        "PackageCode" = "8:{2B4DE59B-4B11-4CC5-9162-1777DFAFEEB8}"
+        "PackageCode" = "8:{1162C740-60BC-4033-A193-4B3986A4D81B}"
         "UpgradeCode" = "8:{5A1FB70B-30DC-48EB-9A3A-05F647FFB883}"
         "AspNetVersion" = "8:"
         "RestartWWWService" = "11:FALSE"
@@ -276,16 +351,16 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:EthanVodka"
-        "ARPHELPTELEPHONE" = "8:"
+        "Manufacturer" = "8:Ethan"
+        "ARPHELPTELEPHONE" = "8:pikaso1008@icloud.com"
         "ARPHELPLINK" = "8:"
         "Title" = "8:MSPaintSetup"
         "Subject" = "8:"
         "ARPCONTACT" = "8:pikaso1008@icloud.com"
         "Keywords" = "8:"
-        "ARPCOMMENTS" = "8:"
+        "ARPCOMMENTS" = "8:App Installer"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:"
+        "ARPPRODUCTICON" = "8:_0121A007BA384014A8B9A41EF6231448"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -399,7 +474,7 @@
             "Target" = "8:_AB46936B277F4BC690F1AB94D2B9CD3D"
             "Folder" = "8:_B2A13AE185D74C939D1E8EE21C49FE14"
             "WorkingFolder" = "8:_3201960A51B34502AEA49F7796D93262"
-            "Icon" = "8:_364F7D19A7BD455D9487F01D0D2EDAE4"
+            "Icon" = "8:_0121A007BA384014A8B9A41EF6231448"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_50E900824115497088B2F4A826B7C017"
@@ -413,7 +488,7 @@
             "Target" = "8:_AB46936B277F4BC690F1AB94D2B9CD3D"
             "Folder" = "8:_E4F8D4CAEEF140EDBE289E1474D89BD5"
             "WorkingFolder" = "8:_3201960A51B34502AEA49F7796D93262"
-            "Icon" = "8:_364F7D19A7BD455D9487F01D0D2EDAE4"
+            "Icon" = "8:_0121A007BA384014A8B9A41EF6231448"
             "Feature" = "8:"
             }
         }

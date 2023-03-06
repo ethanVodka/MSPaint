@@ -48,7 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>MSPaint.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\MSPaint.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>MSPaint.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="FontAwesome.Sharp, Version=6.2.1.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
@@ -121,7 +124,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MSPaint.ico" />
+    <Content Include="Resources\MSPaint.ico" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\palette.jpg" />

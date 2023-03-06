@@ -251,13 +251,11 @@
             // CmbPenWidth
             // 
             this.CmbPenWidth.BackColor = System.Drawing.Color.White;
-            this.CmbPenWidth.Dock = System.Windows.Forms.DockStyle.Top;
-            this.CmbPenWidth.DropDownHeight = 50;
+            this.CmbPenWidth.DropDownHeight = 100;
             this.CmbPenWidth.DropDownWidth = 20;
-            this.CmbPenWidth.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CmbPenWidth.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.CmbPenWidth.FormattingEnabled = true;
-            this.CmbPenWidth.IntegralHeight = false;
+            this.CmbPenWidth.ItemHeight = 14;
             this.CmbPenWidth.Items.AddRange(new object[] {
             "1",
             "2",
@@ -279,10 +277,10 @@
             "18",
             "19",
             "20"});
-            this.CmbPenWidth.Location = new System.Drawing.Point(0, 36);
-            this.CmbPenWidth.Margin = new System.Windows.Forms.Padding(0);
+            this.CmbPenWidth.Location = new System.Drawing.Point(450, 47);
+            this.CmbPenWidth.Margin = new System.Windows.Forms.Padding(2);
             this.CmbPenWidth.Name = "CmbPenWidth";
-            this.CmbPenWidth.Size = new System.Drawing.Size(65, 22);
+            this.CmbPenWidth.Size = new System.Drawing.Size(64, 22);
             this.CmbPenWidth.TabIndex = 3;
             this.CmbPenWidth.Text = "Custum";
             this.CmbPenWidth.SelectedValueChanged += new System.EventHandler(this.CmbPenWidth_SelectedValueChanged);
@@ -304,9 +302,9 @@
             // 
             this.SelectRegular.AutoSize = true;
             this.SelectRegular.Checked = true;
-            this.SelectRegular.Dock = System.Windows.Forms.DockStyle.Top;
+            this.SelectRegular.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.SelectRegular.Font = new System.Drawing.Font("游ゴシック", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.SelectRegular.Location = new System.Drawing.Point(0, 18);
+            this.SelectRegular.Location = new System.Drawing.Point(0, 38);
             this.SelectRegular.Name = "SelectRegular";
             this.SelectRegular.Size = new System.Drawing.Size(65, 18);
             this.SelectRegular.TabIndex = 0;
@@ -329,8 +327,8 @@
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.351039F));
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.540416F));
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.967668F));
-            this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.151096F));
-            this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.073818F));
+            this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.843137F));
+            this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 7.381776F));
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.768166F));
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.608696F));
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.608696F));
@@ -344,6 +342,7 @@
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.608696F));
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.086957F));
             this.PanelControl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
+            this.PanelControl.Controls.Add(this.CmbPenWidth, 10, 2);
             this.PanelControl.Controls.Add(this.BtnPen_0, 1, 1);
             this.PanelControl.Controls.Add(this.BtnEraser_1, 2, 1);
             this.PanelControl.Controls.Add(this.BtnRectangle_3, 6, 1);
@@ -467,7 +466,6 @@
             // 
             // PanelWidth
             // 
-            this.PanelWidth.Controls.Add(this.CmbPenWidth);
             this.PanelWidth.Controls.Add(this.SelectRegular);
             this.PanelWidth.Controls.Add(this.SelectBold);
             this.PanelWidth.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -778,11 +776,11 @@
             this.SelectedColor.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.SelectedColor.IconSize = 60;
             this.SelectedColor.ImageLocation = "";
-            this.SelectedColor.Location = new System.Drawing.Point(510, 15);
+            this.SelectedColor.Location = new System.Drawing.Point(516, 15);
             this.SelectedColor.Margin = new System.Windows.Forms.Padding(0);
             this.SelectedColor.Name = "SelectedColor";
             this.PanelControl.SetRowSpan(this.SelectedColor, 2);
-            this.SelectedColor.Size = new System.Drawing.Size(70, 60);
+            this.SelectedColor.Size = new System.Drawing.Size(64, 60);
             this.SelectedColor.TabIndex = 16;
             this.SelectedColor.TabStop = false;
             // 
@@ -813,11 +811,12 @@
             // lblWidth
             // 
             this.lblWidth.AutoSize = true;
+            this.PanelControl.SetColumnSpan(this.lblWidth, 2);
             this.lblWidth.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblWidth.Location = new System.Drawing.Point(382, 78);
             this.lblWidth.Margin = new System.Windows.Forms.Padding(3);
             this.lblWidth.Name = "lblWidth";
-            this.lblWidth.Size = new System.Drawing.Size(63, 19);
+            this.lblWidth.Size = new System.Drawing.Size(131, 19);
             this.lblWidth.TabIndex = 17;
             this.lblWidth.Text = "Width";
             this.lblWidth.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -826,10 +825,10 @@
             // 
             this.lblColors.AutoSize = true;
             this.lblColors.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lblColors.Location = new System.Drawing.Point(513, 78);
+            this.lblColors.Location = new System.Drawing.Point(519, 78);
             this.lblColors.Margin = new System.Windows.Forms.Padding(3);
             this.lblColors.Name = "lblColors";
-            this.lblColors.Size = new System.Drawing.Size(64, 19);
+            this.lblColors.Size = new System.Drawing.Size(58, 19);
             this.lblColors.TabIndex = 17;
             this.lblColors.Text = "Color";
             this.lblColors.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -839,7 +838,7 @@
             this.Canvas.BackColor = System.Drawing.Color.White;
             this.Canvas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Canvas.Location = new System.Drawing.Point(5, 5);
-            this.Canvas.Margin = new System.Windows.Forms.Padding(0);
+            this.Canvas.Margin = new System.Windows.Forms.Padding(0, 2, 0, 0);
             this.Canvas.Name = "Canvas";
             this.Canvas.Size = new System.Drawing.Size(890, 585);
             this.Canvas.TabIndex = 2;
