@@ -1,0 +1,13 @@
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\bin\Release\MSPaint.exe.config
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\bin\Release\MSPaint.exe
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\bin\Release\MSPaint.pdb
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\bin\Release\FontAwesome.Sharp.dll
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.csproj.AssemblyReference.cache
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.csproj.SuggestedBindingRedirects.cache
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.MainForm.resources
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.Properties.Resources.resources
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.csproj.GenerateResource.cache
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.csproj.CoreCompileInputs.cache
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.csproj.CopyComplete
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.exe
+C:\Users\pikas\OneDrive\デスクトップ\MSPaint\obj\Release\MSPaint.pdb
