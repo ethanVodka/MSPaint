@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\MSPaint.ico</ApplicationIcon>
+    <ApplicationIcon>MSPaint.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>MSPaint.Program</StartupObject>
@@ -124,6 +124,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MSPaint.ico" />
     <Content Include="Resources\MSPaint.ico" />
   </ItemGroup>
   <ItemGroup>

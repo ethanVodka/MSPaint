@@ -352,8 +352,6 @@ namespace MSPaint
         private void ColorPalette_MouseDown(object sender, MouseEventArgs e)
         {
             PictureBox palette = sender as PictureBox;
-
-            Point node = e.Location;
             Model.DrawColor = palette.BackColor;
         }
 

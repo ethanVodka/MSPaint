@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MSPaint", "MSPaint.csproj", "{BFBF9157-BF47-424E-8B56-0B6CB2463D9F}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "MSPaintSetup", "MSPaintSetup\MSPaintSetup.vdproj", "{6DA1B21B-8148-4C58-AF26-DF418344EFC2}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup_MSPaint", "..\Setup_MSPaint\Setup_MSPaint.vdproj", "{56C92927-10FD-4A85-BFB3-F56111580204}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +17,8 @@ Global
 		{BFBF9157-BF47-424E-8B56-0B6CB2463D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFBF9157-BF47-424E-8B56-0B6CB2463D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFBF9157-BF47-424E-8B56-0B6CB2463D9F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DA1B21B-8148-4C58-AF26-DF418344EFC2}.Debug|Any CPU.ActiveCfg = Debug
-		{6DA1B21B-8148-4C58-AF26-DF418344EFC2}.Release|Any CPU.ActiveCfg = Release
+		{56C92927-10FD-4A85-BFB3-F56111580204}.Debug|Any CPU.ActiveCfg = Debug
+		{56C92927-10FD-4A85-BFB3-F56111580204}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
