@@ -54,7 +54,7 @@ namespace MSPaint
         }
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
         private void BtnMaximize_Click(object sender, EventArgs e)
         {
@@ -91,7 +91,7 @@ namespace MSPaint
             string[] splitName = btn.Name.ToString().Split('_');
             if (int.TryParse(splitName[1], out int index))
             {
-                Model.DrawMode = (Models.PaintModel.Mode)index;
+                Model.DrawMode = (PaintModel.Mode)index;
             }
             else
             {
